@@ -7,7 +7,8 @@ const Todo = props => {//setting state
     //     completed: false
     // })
     const handleClick = () => {//on click toggles completed to the opposite of what it is currently
-        props.handleCompleted(props.todo.task)
+        props.handleCompleted(props.todo.id)
+        console.log(props.todo.id)
         // setTodo({
         //     ...todo,
         //     completed: !todo.completed

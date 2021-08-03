@@ -3,7 +3,7 @@ import TodoList from './components/TodoList'
 import TodoForm from './components/TodoForm';
 import './components/Todo.css'
 
-const tasks = [
+const todo = [
   {
     task: 'mowing',
     id: 1222,
@@ -21,14 +21,14 @@ class App extends React.Component {
 constructor() {
   super();
   this.state = {
-    tasks: tasks
+    todo: todo
   }
 
 }
 
 handleCompleted = (id) => {
   this.setState({
-    tasks:this.state.tasks.map(task => {
+    todo:this.state.todo.map(task => {
       if (task.id === id) {
         return({
           ...task,
@@ -47,15 +47,15 @@ handleAddItem = (task) => {
     completed: false
   }
   this.setState({
-    tasks: [...this.state.tasks, newItem]
+    todo: [...this.state.todo, newItem]
   })
 }
 
 handleClear = () => {
   this.setState({
     ...this.state,
-    tasks:this.state.tasks.filter(task => {
-      return(task.completed === false)
+    todo:this.state.todo.filter(todo => {
+      return(todo.completed === false)
     })
   })
 }
@@ -69,7 +69,7 @@ handleClear = () => {
         <div>
         <h2>Welcome to your Task List</h2>
         <TodoForm handleAddItem={this.handleAddItem}/>
-        <TodoList handleClear={this.handleClear} handleCompleted={this.handleCompleted} tasks={this.state.tasks}/>
+        <TodoList handleClear={this.handleClear} handleCompleted={this.handleCompleted} todo={this.state.todo}/>
         </div>
 
       </div>

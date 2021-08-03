@@ -11,7 +11,7 @@ const TodoList = props => {
 
     return (
         <div className="todo-list">
-            {props.tasks.map(todo => (
+            {props.todo.map(todo => (
                 <Todo handleCompleted={props.handleCompleted} key={todo.id} todo={todo} />
             ))}
             <button onClick={handleClick}>Clear Finished Tasks</button>
